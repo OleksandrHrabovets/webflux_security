@@ -1,0 +1,16 @@
+server:
+  port:
+    5000
+
+spring:
+  jpa:
+    show-sql: true
+  r2dbc:
+    url: ${DB_URL_R2DBC}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+  flyway:
+    url: ${DB_URL}
+    locations: classpath:db/migration
+    user: ${DB_USER}
+    password: ${DB_PASSWORD}
