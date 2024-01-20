@@ -14,3 +14,8 @@ spring:
     locations: classpath:db/migration
     user: ${DB_USER}
     password: ${DB_PASSWORD}
+
+jwt:
+  secret: ${SECRET}
+  expiration: 3600
+  issuer: webflux_security
