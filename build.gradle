@@ -25,10 +25,13 @@ dependencies {
 
 	implementation "org.flywaydb:flyway-core:$flywayVersion"
 
+	implementation "org.mapstruct:mapstruct:$mapStructVersion"
+
 	implementation "org.projectlombok:lombok:$lombokVersion"
 
 	compileOnly("org.projectlombok:lombok")
 	annotationProcessor "org.projectlombok:lombok"
+	annotationProcessor "org.mapstruct:mapstruct-processor:$mapStructVersion"
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'io.projectreactor:reactor-test'
