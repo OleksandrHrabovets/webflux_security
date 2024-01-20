@@ -1,7 +1,7 @@
 package ua.oh.webflux_security.security;
 
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.security.Keys;
+import io.jsonwebtoken.SignatureAlgorithm;
 import java.util.Base64;
 import java.util.Date;
 import java.util.HashMap;
@@ -66,13 +66,13 @@ public class SecurityService {
       String subject) {
     Date created = new Date();
     String token = Jwts.builder()
-        .claims(claims)
-        .subject(subject)
-        .issuer(issuer)
-        .issuedAt(created)
-        .id(UUID.randomUUID().toString())
-        .expiration(expirationDate)
-        .signWith(Keys.hmacShaKeyFor(Base64.getEncoder().encode(secret.getBytes())))
+        .setClaims(claims)
+        .setSubject(subject)
+        .setIssuer(issuer)
+        .setIssuedAt(created)
+        .setId(UUID.randomUUID().toString())
+        .setExpiration(expirationDate)
+        .signWith(SignatureAlgorithm.HS256, Base64.getEncoder().encodeToString(secret.getBytes()))
         .compact();
     return TokenDetails.builder()
         .token(token)

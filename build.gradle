@@ -25,6 +25,7 @@ dependencies {
 	implementation "org.postgresql:postgresql:$postgreSqlVersion"
 
 	implementation "org.flywaydb:flyway-core:$flywayVersion"
+	implementation "com.google.code.findbugs:jsr305:$googleFindBugsVersion"
 
 	implementation "org.mapstruct:mapstruct:$mapStructVersion"
 
